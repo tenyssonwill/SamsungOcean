@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Samsung Ocean: Android Intro</string>
+    <string name="insert_your_name">Insira seu nome...</string>
+    <string name="send">Enviar</string>
+    <string name="insert_a_valid_name">Digite um nome válido</string>
+</resources>
