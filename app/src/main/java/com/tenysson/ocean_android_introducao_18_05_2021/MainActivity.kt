@@ -1,5 +1,6 @@
 package com.tenysson.ocean_android_introducao_18_05_2021
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,24 @@ import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+    companion object{
+        const val NEW_SCREEN_REQUEST_CODE = 1
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == NEW_SCREEN_REQUEST_CODE){
+            val tvResults = findViewById<TextView>(R.id.tvResults)
+            if(resultCode == Activity.RESULT_OK){
+                tvResults.text = data?.getStringExtra("DETAILS_RESULT")
+
+            }else if(resultCode == Activity.RESULT_CANCELED){
+                tvResults.text = "Ação Cancelada"
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_main)
@@ -19,14 +38,21 @@ class MainActivity : AppCompatActivity() {
         val tvResults = this.findViewById<TextView>(R.id.tvResults)
 
         btSendAnotherScreen.setOnClickListener {
-            val newScreenIntent = Intent(this, DetailsActivity::class.java)
-            newScreenIntent.putExtra("EXTRA_INFO", tvResults.text.toString())
-            startActivity(newScreenIntent)
+            // Chamada Normal
+//            val newScreenIntent = Intent(this, DetailsActivity::class.java)
+//            newScreenIntent.putExtra("EXTRA_INFO", tvResults.text.toString())
+//            startActivity(newScreenIntent)
+
+            // Chamada Para Volta
+              val newScreenIntent = Intent(this, DetailsActivity::class.java)
+              newScreenIntent.putExtra("EXTRA_INFO", tvResults.text.toString())
+              startActivityForResult(newScreenIntent, NEW_SCREEN_REQUEST_CODE)
 
 //            // Call
 //            val intent = Intent(Intent.ACTION_DIAL)
 //            intent.data = Uri.parse("tel:988013435")
 //            startActivity(intent)
+
 //            SMS
 //            val number = 988013435
         //    intent = Intent(Intent.ACTION_DIAL)
