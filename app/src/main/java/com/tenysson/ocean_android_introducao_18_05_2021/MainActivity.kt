@@ -12,6 +12,7 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
     companion object{
         const val NEW_SCREEN_REQUEST_CODE = 1
+        const val EXTRA_INFO = "EXTRA_INFO"
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -20,10 +21,10 @@ class MainActivity : AppCompatActivity() {
         if(requestCode == NEW_SCREEN_REQUEST_CODE){
             val tvResults = findViewById<TextView>(R.id.tvResults)
             if(resultCode == Activity.RESULT_OK){
-                tvResults.text = data?.getStringExtra("DETAILS_RESULT")
+                tvResults.text = data?.getStringExtra(DetailsActivity.DETAILS_RESULT)
 
             }else if(resultCode == Activity.RESULT_CANCELED){
-                tvResults.text = "Ação Cancelada"
+                tvResults.text = getString(R.string.action_cancelled)
             }
         }
     }
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
             // Chamada Para Volta
               val newScreenIntent = Intent(this, DetailsActivity::class.java)
-              newScreenIntent.putExtra("EXTRA_INFO", tvResults.text.toString())
+              newScreenIntent.putExtra(EXTRA_INFO, tvResults.text.toString())
               startActivityForResult(newScreenIntent, NEW_SCREEN_REQUEST_CODE)
 
 //            // Call

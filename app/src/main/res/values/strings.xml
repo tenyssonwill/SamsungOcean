@@ -9,4 +9,6 @@
     <string name="insert_a_valid_age">Insert a Valid Age</string>
     <string name="result_text">Hello %1$s %2$s you are %3$s years old!</string>
     <string name="send_to_another_screen">Send to Another Screen</string>
+    <string name="action_cancelled">Action Cancelled</string>
+    <string name="info_details_activity">Info at DetailsActivity</string>
 </resources>

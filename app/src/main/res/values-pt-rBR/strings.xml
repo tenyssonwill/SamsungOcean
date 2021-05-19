@@ -10,4 +10,6 @@
     <string name="result_text">Olá, %1$s %2$s você tem %3$s anos!</string>
     <string name="insert_a_valid_age">Digite uma Idade Válida</string>
     <string name="send_to_another_screen">Mandar para outras telas</string>
+    <string name="action_cancelled">Ação Cancelada</string>
+    <string name="info_details_activity">Info na DetailsActivity</string>
 </resources>

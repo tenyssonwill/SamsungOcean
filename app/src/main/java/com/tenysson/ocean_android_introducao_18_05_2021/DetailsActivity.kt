@@ -8,12 +8,15 @@ import android.widget.Button
 import android.widget.TextView
 
 class DetailsActivity : AppCompatActivity() {
+    companion object{
+        const val DETAILS_RESULT = "DETAILS_RESULT"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-        val extraInfo = intent.getStringExtra("EXTRA_INFO")
+        val extraInfo = intent.getStringExtra(MainActivity.EXTRA_INFO)
 
-        var tvInfo = findViewById<TextView>(R.id.tvInfo)
+        val tvInfo = findViewById<TextView>(R.id.tvInfo)
         tvInfo.text = extraInfo
 
         val btOk =  findViewById<Button>(R.id.btOk)
@@ -21,7 +24,7 @@ class DetailsActivity : AppCompatActivity() {
 
         btOk.setOnClickListener {
             val resultIntent = Intent()
-            resultIntent.putExtra("DETAILS_RESULT", "Info na DetailsActivity")
+            resultIntent.putExtra(DETAILS_RESULT, getString(R.string.info_details_activity))
             setResult(Activity.RESULT_OK, resultIntent)
 
             finish()
