@@ -1,5 +1,6 @@
 package com.tenysson.ocean_android_introducao_18_05_2021
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -11,6 +12,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_main)
 
+        InitForm()
+
+        val btSendAnotherScreen = findViewById<Button>(R.id.btSendToAnotherScreen)
+
+        btSendAnotherScreen.setOnClickListener {
+            val newScreenIntent = Intent(this, DetailsActivity::class.java)
+            startActivity(newScreenIntent)
+        }
+    }
+
+    private fun InitForm() {
         val tvResults = this.findViewById<TextView>(R.id.tvResults)
         val btSend = this.findViewById<Button>(R.id.btSend)
         val etName = this.findViewById<EditText>(R.id.etName)
@@ -24,22 +36,23 @@ class MainActivity : AppCompatActivity() {
             val isAgeValid = etAge.text.isNotBlank()
 
 
-            if(!isNameValid){
+            if (!isNameValid) {
                 etName.error = getString(R.string.insert_a_valid_name)
             }
 
-            if(!isFamilyNameValid){
-               etFamilyName.error = getString(R.string.insert_a_valid_familyname)
+            if (!isFamilyNameValid) {
+                etFamilyName.error = getString(R.string.insert_a_valid_familyname)
             }
 
-            if(!isAgeValid){
+            if (!isAgeValid) {
                 etAge.error = getString(R.string.insert_a_valid_age)
             }
 
-            if(isNameValid && isFamilyNameValid &&isAgeValid){
-                tvResults.text = getString(R.string.result_text,etName.text,etFamilyName.text,etAge.text)
+            if (isNameValid && isFamilyNameValid && isAgeValid) {
+                tvResults.text =
+                    getString(R.string.result_text, etName.text, etFamilyName.text, etAge.text)
             }
-            //savedInstanceState.toString() para salvar dados
+
         }
     }
 }

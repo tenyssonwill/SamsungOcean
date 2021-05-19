@@ -8,4 +8,5 @@
     <string name="insert_a_valid_familyname">Insert a valid Family Name</string>
     <string name="insert_a_valid_age">Insert a Valid Age</string>
     <string name="result_text">Hello %1$s %2$s you are %3$s years old!</string>
+    <string name="send_to_another_screen">Send to Another Screen</string>
 </resources>

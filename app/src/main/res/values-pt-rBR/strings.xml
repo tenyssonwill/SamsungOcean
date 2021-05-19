@@ -9,4 +9,5 @@
     <string name="insert_a_valid_familyname">Digite um sobrenome válido</string>
     <string name="result_text">Olá, %1$s %2$s você tem %3$s anos!</string>
     <string name="insert_a_valid_age">Digite uma Idade Válida</string>
+    <string name="send_to_another_screen">Mandar para outras telas</string>
 </resources>
