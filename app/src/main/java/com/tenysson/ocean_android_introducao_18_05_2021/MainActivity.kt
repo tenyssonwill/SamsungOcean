@@ -1,6 +1,7 @@
 package com.tenysson.ocean_android_introducao_18_05_2021
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -15,10 +16,22 @@ class MainActivity : AppCompatActivity() {
         InitForm()
 
         val btSendAnotherScreen = findViewById<Button>(R.id.btSendToAnotherScreen)
+        val tvResults = this.findViewById<TextView>(R.id.tvResults)
 
         btSendAnotherScreen.setOnClickListener {
             val newScreenIntent = Intent(this, DetailsActivity::class.java)
+            newScreenIntent.putExtra("EXTRA_INFO", tvResults.text.toString())
             startActivity(newScreenIntent)
+
+//            // Call
+//            val intent = Intent(Intent.ACTION_DIAL)
+//            intent.data = Uri.parse("tel:988013435")
+//            startActivity(intent)
+//            SMS
+//            val number = 988013435
+        //    intent = Intent(Intent.ACTION_DIAL)
+//            intent.data = Uri.parse("tel:988013435")
+//            startActivity(intent)
         }
     }
 
