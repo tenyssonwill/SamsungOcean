@@ -4,4 +4,9 @@
     <string name="insert_your_name">Insira seu nome...</string>
     <string name="send">Enviar</string>
     <string name="insert_a_valid_name">Digite um nome válido</string>
+    <string name="insert_your_family_name">Insira o seu sobrenome</string>
+    <string name="insert_your_age">Insira sua idade</string>
+    <string name="insert_a_valid_familyname">Digite um sobrenome válido</string>
+    <string name="result_text">Olá, %1$s %2$s você tem %3$s anos!</string>
+    <string name="insert_a_valid_age">Digite uma Idade Válida</string>
 </resources>

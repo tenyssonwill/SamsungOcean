@@ -11,16 +11,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_main)
 
-        val tvName = this.findViewById<TextView>(R.id.tvName)
+        val tvResults = this.findViewById<TextView>(R.id.tvResults)
         val btSend = this.findViewById<Button>(R.id.btSend)
         val etName = this.findViewById<EditText>(R.id.etName)
+        val etFamilyName = this.findViewById<EditText>(R.id.etFamilyName)
+        val etAge = this.findViewById<EditText>(R.id.etAge)
+
 
         btSend.setOnClickListener {
-            val nome = etName.text.toString()
-            if(etName.text.isNotBlank()){
-                tvName.text = nome
-            }else {
+            val isNameValid = etName.text.isNotBlank()
+            val isFamilyNameValid = etFamilyName.text.isNotBlank()
+            val isAgeValid = etAge.text.isNotBlank()
+
+
+            if(!isNameValid){
                 etName.error = getString(R.string.insert_a_valid_name)
+            }
+
+            if(!isFamilyNameValid){
+               etFamilyName.error = getString(R.string.insert_a_valid_familyname)
+            }
+
+            if(!isAgeValid){
+                etAge.error = getString(R.string.insert_a_valid_age)
+            }
+
+            if(isNameValid && isFamilyNameValid &&isAgeValid){
+                tvResults.text = getString(R.string.result_text,etName.text,etFamilyName.text,etAge.text)
             }
             //savedInstanceState.toString() para salvar dados
         }
